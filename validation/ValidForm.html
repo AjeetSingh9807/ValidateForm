@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Validation</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+	<div id="time_div1">
+		<span id="monN">monN</span>
+		<br>
+		<span id="dayN">dayN</span>
+	</div>
+	<div id="time_div">
+		<span id="dd">dd </span>/
+		<span id="mm">mm </span>/
+		<span id="yyyy">yyyy</span>
+		<br>
+		<span id="h">h </span>:
+		<span id="m">m </span>:
+		<span id="s">s </span> 
+		<span id="A">A</span>
+	</div>
+
+
+	<div id="main_div">
+		
+		<h1>User Registeration Form</h1>
+
+		<form action="" id="form_id" method="post" enctype="multipart/form-data">
+
+				<input class="input" type="text" id="name" required  placeholder="Enter your name" >
+			<br>
+			  <small id="small1">this is worked..</small>
+			<br>
+				<input class="input" type="number" id="phone" required  placeholder="Enter your phone" >
+			<br>
+			  <small id="small2">this is worked..</small>
+			<br>
+				<input class="input" type="email" id="mail" required  placeholder="Enter your mail" >
+			<br>
+			  <small id="small3">this is worked..</small>
+			<br>
+				<input  class="input" type="password" id="password" required  placeholder="Enter password" >
+			<br>
+				<p>password must be 5 letters one Capital letter and one spacial char.</p>
+			  <small id="small4">this is worked..</small>
+			<br>
+				<input  class="input" type="password" id="rpassword" required  placeholder="Enter re-password" >
+			<br>
+			  <small id="small5">this is worked..</small>
+			<br>
+				<input  class="input" type="file" id="file" required>
+			<br>
+				<p>only pdf,docx(word) and xlsx(Excle) file can submit</p>
+			  <small id="small6">this is worked..</small>
+			<br>
+				<input class="button" type="reset" onclick="btnreset()" value="reset" required>
+
+		</form>
+
+		<button class="button" onclick="fetchfun()" >click it</button>
+		
+
+
+	</div>
+
+</body>
+
+<script>
+	var MO=["JAN","FEV","MAR","APR","MAY","JUNE","JUL","AUG","SEP","OCT","NOV","DEC",];
+	var dN=["MONDAY","TUEDAY","WEDDAY","THUDAY","FRIDAY","SATDAY","SUNDAY"];
+	function date_set() {
+	var t= new Date();
+	var date=t.getDate();
+	var Months=t.getMonth();
+	var Year=t.getFullYear();
+	var Hours=t.getHours();
+	var Minutes=t.getMinutes();
+	var Seconds=t.getSeconds();
+
+	var dayN=dN[(date+1)%7];
+	var monN=MO[(Months)];
+
+
+
+
+
+
+	var interval="";
+	if (Hours<=11) {
+		interval="AM";
+	}else{
+		interval="PM";
+	}
+	// document.getElementById('date').innerHTML=`${date}/${Months+1}/${Year} - ${Hours}:${Minutes}:${Seconds} ${interval}`;
+	document.getElementById('dd').innerHTML=`${date}`;
+	document.getElementById('mm').innerHTML=`${Months+1}`;
+	document.getElementById('monN').innerHTML=`Month :${monN}`;
+	document.getElementById('yyyy').innerHTML=`${Year}`;
+	document.getElementById('dayN').innerHTML=`Day :${dayN}`;
+	document.getElementById('h').innerHTML=`${Hours}`;
+	document.getElementById('m').innerHTML=`${Minutes}`;
+	document.getElementById('s').innerHTML=`${Seconds}`;
+	document.getElementById('A').innerHTML=`${interval}`;
+	}
+	// date_set();
+	setInterval("date_set()",1000);
+</script>
+<script type="text/javascript" src="javascript/script.js"></script>
+</html>
+
+
+
+
+
+
